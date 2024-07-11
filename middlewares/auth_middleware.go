@@ -71,6 +71,7 @@ func AuthMiddleware() gin.HandlerFunc {
 				Expires: newExpirationTime,
 			})
 		}
+		c.Set("user", claims)
 		c.Next()
 	}
 }

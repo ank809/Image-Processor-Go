@@ -16,6 +16,7 @@ func main() {
 	r.POST("/signup", authentication.SignUp)
 	r.GET("/login", authentication.LoginUser)
 	r.POST("/upload", S3__Upload.UploadToS3).Use(middlewares.AuthMiddleware())
+	r.POST("/processimage", S3__Upload.ProcessImage)
 	if err := http.ListenAndServe(":8081", r); err != nil {
 		log.Println(err)
 		return

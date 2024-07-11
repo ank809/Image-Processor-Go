@@ -7,8 +7,3 @@ type Claims struct {
 	Email string `json:"email"`
 	jwt.StandardClaims
 }
-
-type FileInfo struct {
-	Filename string `json:"filename" binding:"required" `
-	Email    string `json:"email" binding:"required"`
-}

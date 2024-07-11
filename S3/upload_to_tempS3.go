@@ -29,7 +29,7 @@ func UploadToS3(c *gin.Context) {
 	uniquekey := helpers.GetUniqueKey()
 
 	key := fileinfo.Email + "/" + uniquekey + fileinfo.Filename
-	bucketname := os.Getenv("BUCKET_NAME")
+	bucketname := os.Getenv("TEMP_BUCKET_NAME")
 
 	presignClient := s3.NewPresignClient(s3client)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
